@@ -1,0 +1,137 @@
+.shadow-2 {
+  box-shadow: 1px 3px 2px 0 rgba(0, 0, 0, 0.2); }
+
+.pointer {
+  cursor: pointer !important; }
+
+.text-red {
+  color: #ff3838 !important; }
+
+.w-90 {
+  width: 90%; }
+
+.primary {
+  background: #4CAF50; }
+
+.hue {
+  background: #ffb61e; }
+
+.primary-text {
+  color: #4CAF50; }
+
+.hue-text {
+  color: #ffb61e; }
+
+.border {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 0 !important; }
+
+body {
+  font-family: 'Droid Sans', sans-serif;
+  background: #f0f3ec; }
+
+#myList {
+  margin-bottom: 25px; }
+
+.app-button, .page-row .note-input .submit-button, .page-row .note-input .prev-button, .delete-modal .modal-button {
+  border-radius: 63px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer; }
+
+.button-pad-shadow, .page-row .note-input .submit-button, .page-row .note-input .prev-button, .delete-modal .modal-button {
+  padding: 5px 13px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
+
+.search-button:hover, .search-button:focus, .search-button:active {
+  background: #ffc028;
+  border-color: #ffb61e;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2); }
+
+.app-input, .page-row .note-input textarea, .page-row .note-input input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #388E3C; }
+
+.bottom-form-row {
+  margin-top: 40px; }
+
+.page-row {
+  padding: 40px 10px; }
+  .page-row .list-group-item {
+    border: none; }
+  .page-row .list-group-item.active {
+    background: #ffb61e; }
+  .page-row .note-input {
+    padding: 10px 25px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    overflow: hidden; }
+    .page-row .note-input input {
+      margin: 10px 0;
+      height: 40px; }
+    .page-row .note-input small {
+      color: #388E3C;
+      margin: 5px 0 10px; }
+    .page-row .note-input .submit-button {
+      background: #4CAF50; }
+    .page-row .note-input .prev-button {
+      background: #ffb61e; }
+
+.inputs-holder {
+  position: relative;
+  height: 103px; }
+  .inputs-holder .form-control {
+    position: absolute;
+    width: 100%; }
+
+.tweet-card i.fa {
+  cursor: pointer; }
+.tweet-card i.fa.fa-pencil.edit {
+  color: #00aced; }
+.tweet-card i.fa.fa-trash-o.delete {
+  color: #ff3838; }
+.tweet-card i.fa.fa-send-o.tweet {
+  color: #4CAF50; }
+
+.bg-card {
+  background: #ffb61e;
+  height: 230px; }
+  .bg-card .fa {
+    opacity: 0.8;
+    cursor: pointer; }
+  .bg-card button {
+    background: transparent;
+    border: none;
+    color: white; }
+  .bg-card button:focus {
+    outline: none; }
+  .bg-card .card-body {
+    overflow-y: auto; }
+
+.app-message {
+  background: #1b1e21;
+  position: fixed;
+  left: 20px;
+  bottom: 0;
+  color: white;
+  opacity: 0.75; }
+  .app-message button {
+    margin: 0 10px; }
+
+.header {
+  margin: 30px 0; }
+
+.delete-modal .modal-content {
+  border-radius: 0; }
+
+@media (min-width: 576px) {
+  .search-bar {
+    margin: 0 0.7rem !important; }
+
+  .delete-modal .modal-dialog {
+    max-width: 500px;
+    margin: 180px auto; } }
+
+/*# sourceMappingURL=styles.css.map */

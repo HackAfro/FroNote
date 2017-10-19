@@ -42,24 +42,6 @@ body {
   background: #f0f3ec;
 }
 
-.navbar {
-  background: $primary-color !important;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
-
-  .search-bar {
-    border-radius: 60px;
-  }
-  .search-bar:focus {
-    border-color: $accent-color;
-  }
-
-  .search-button {
-    @extend .app-button;
-    padding: $desktop-padding;
-    background: $accent-color;
-  }
-}
-
 #myList {
   margin-bottom: 25px;
 }
@@ -75,11 +57,6 @@ body {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.search-button:hover, .search-button:focus, .search-button:active {
-  background: $hover-color;
-  border-color: $accent-color;
-  box-shadow: $button-shadow;
-}
 
 .app-input {
   border: none;

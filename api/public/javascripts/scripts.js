@@ -62,7 +62,7 @@
                              </div>
                              <div class="tweet-options d-flex justify-content-between w-50 px-4 my-2">
                                 <i class="fa fa-pencil edit"></i>
-                                <i class="fa fa-trash-o delete" data-id="${tweet.id}" data-content="tweet" data-toggle="modal" data-target=".delete-modal"></i>
+                                <i class="fa fa-trash-o delete" data-id="${tweet._id}" data-content="tweet" data-toggle="modal" data-target=".delete-modal"></i>
                                 ${tweet.tweeted ? '' : '<i class="fa fa-send-o tweet"></i>'}
                              </div>
                         </div>`
@@ -82,7 +82,7 @@
                                 <div class="card text-white bg-card mb-3">
                                     <div class="card-header">
                                         <i class="fa fa-pencil float-left update"></i>
-                                        <i class="fa fa-close float-right delete" data-id="${note.id}" data-content="note" data-toggle="modal" data-target=".delete-modal"></i>
+                                        <i class="fa fa-close float-right delete" data-id="${note._id}" data-content="note" data-toggle="modal" data-target=".delete-modal"></i>
                                     </div>    
 
                                     <div class="card-body" contenteditable="true">
@@ -109,7 +109,7 @@
                 showAlert("Please ensure that you fill the form before submitting");
             }
             else {
-                http('POST', '/add-tweet', {tweet: tweetText.value})
+                http('POST', '/tweets', {tweet: tweetText.value})
                     .done(function (data) {
                         let newTweet =
                             `<div class="list-group-item list-group-item-action flex-column align-items-start border border-left-0 border-right-0 border-top-0 tweet-card">
@@ -122,7 +122,7 @@
                              </div>
                              <div class="tweet-options d-flex justify-content-between w-50 px-4 my-2">
                                 <i class="fa fa-pencil edit"></i>
-                                <i class="fa fa-trash-o delete" data-id="${data.id}" data-content="tweet" data-toggle="modal" data-target=".delete-modal"></i>
+                                <i class="fa fa-trash-o delete" data-id="${data._id}" data-content="tweet" data-toggle="modal" data-target=".delete-modal"></i>
                                 ${data.tweeted ? '' : '<i class="fa fa-send-o tweet"></i>'}
                              </div>
                         </div>`;
@@ -151,11 +151,11 @@
 
                     if ($textArea.val().length > 1) {
                         let data = {
-                            title: titleInput.val(),
+                            title: title.val(),
                             text: $textArea.val()
                         };
 
-                        http('POST', '/add-note', data)
+                        http('POST', '/notes', data)
                             .done(data => {
                                 const notesBox = document.getElementById('notes-box');
                                 let newNote = `
@@ -163,7 +163,7 @@
                                         <div class="card text-white bg-card mb-3">
                                             <div class="card-header">
                                                 <i class="fa fa-pencil float-left update"></i>
-                                                <i class="fa fa-close float-right delete" data-id="${data.id}" data-content="note" data-toggle="modal" data-target=".delete-modal"></i>
+                                                <i class="fa fa-close float-right delete" data-id="${data._id}" data-content="note" data-toggle="modal" data-target=".delete-modal"></i>
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title note-title">${data.title}</h4>
@@ -172,7 +172,7 @@
                                         </div>        
                                 `;
                                 notesBox.innerHTML += newNote;
-                                titleInput.val('');
+                                title.val('');
                                 $textArea.val('');
 
                                 this.dataset.step = "1";
@@ -224,8 +224,8 @@
         }
 
         function handleDelete() {
-            let url = content === 'tweet' ? `/delete-tweet/${deleteId}` : `/delete-note/${deleteId}`;
-            http('POST', url)
+            let url = content === 'tweet' ? `/tweet/${deleteId}` : `/note/${deleteId}`;
+            http('DELETE', url)
                 .done(data => {
                     showAlert(`Your ${content} has been deleted successfully`);
                     $('.delete-modal').modal('hide');

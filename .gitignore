@@ -50,5 +50,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-/api/data
-**/node_modules
+/api/data/
+**/node_modules/
+.idea/
