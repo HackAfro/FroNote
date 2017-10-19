@@ -1,0 +1,224 @@
+@import "partials/variables";
+
+.shadow-2 {
+  box-shadow: $box-shadow2;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.text-red {
+  color: #ff3838 !important;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.primary {
+  background: $primary-color;
+}
+
+.hue {
+  background: $accent-color;
+}
+
+.primary-text {
+  color: $primary-color;
+}
+
+.hue-text {
+  color: $accent-color;
+}
+
+.border {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 0 !important;
+}
+
+body {
+  font-family: 'Droid Sans', sans-serif;
+  background: #f0f3ec;
+}
+
+.navbar {
+  background: $primary-color !important;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+
+  .search-bar {
+    border-radius: 60px;
+  }
+  .search-bar:focus {
+    border-color: $accent-color;
+  }
+
+  .search-button {
+    @extend .app-button;
+    padding: $desktop-padding;
+    background: $accent-color;
+  }
+}
+
+#myList {
+  margin-bottom: 25px;
+}
+
+.app-button {
+  border-radius: $button-radius;
+  box-shadow: $button-shadow;
+  cursor: pointer;
+}
+
+.button-pad-shadow {
+  padding: 5px 13px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.search-button:hover, .search-button:focus, .search-button:active {
+  background: $hover-color;
+  border-color: $accent-color;
+  box-shadow: $button-shadow;
+}
+
+.app-input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid $primary-color-dark;
+}
+
+.bottom-form-row {
+  margin-top: 40px;
+}
+
+.page-row {
+  padding: 40px 10px;
+
+  .list-group-item {
+    border: none;
+  }
+  .list-group-item.active {
+    background: $accent-color;
+  }
+  .note-input {
+    padding: 10px 25px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    overflow: hidden;
+
+    textarea {
+      @extend .app-input
+    }
+    input {
+      @extend .app-input;
+      margin: 10px 0;
+      height: 40px;
+    }
+    small {
+      color: $primary-color-dark;
+      margin: 5px 0 10px;
+    }
+
+    .submit-button {
+      @extend .app-button;
+      @extend .button-pad-shadow;
+      background: $primary-color;
+    }
+
+    .prev-button {
+      @extend .app-button;
+      @extend .button-pad-shadow;
+      background: $accent-color;
+    }
+
+  }
+}
+
+.inputs-holder {
+  position: relative;
+  height: 103px;
+
+  .form-control {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.tweet-card {
+  i.fa {
+    cursor: pointer;
+  }
+  i.fa.fa-pencil.edit {
+    color: #00aced;
+  }
+  i.fa.fa-trash-o.delete {
+    color: #ff3838;
+  }
+  i.fa.fa-send-o.tweet {
+    color: $primary-color
+  }
+}
+
+.bg-card {
+  background: $card-color;
+  height: 230px;
+
+  .fa {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  button {
+    background: transparent;
+    border: none;
+    color: white;
+  }
+  button:focus {
+    outline: none;
+  }
+  .card-body {
+    overflow-y: auto;
+  }
+}
+
+.app-message {
+  background: #1b1e21;
+  position: fixed;
+  left: 20px;
+  bottom: 0;
+  color: white;
+  opacity: 0.75;
+
+  button {
+    margin: 0 10px;
+  }
+}
+
+.header {
+  margin: 30px 0;
+}
+
+.delete-modal {
+  .modal-content {
+    border-radius: 0;
+  }
+  .modal-button{
+    @extend .app-button;
+    @extend .button-pad-shadow;
+  }
+}
+
+@media (min-width: 576px) {
+  .search-bar {
+    margin: 0 0.7rem !important;
+  }
+
+  .delete-modal .modal-dialog {
+    max-width: 500px;
+    margin: 180px auto;
+  }
+}
+
+
+

@@ -1,0 +1,77 @@
+extends layout
+
+
+block content
+    include header
+    .container
+        .row.page-row
+            .col.col-12.col-lg-3.col-md-3.col-sm-12
+                .list-group.shadow-2#myList(role="tablist")
+                    a.list-group-item.list-group-item-action.active(data-toggle="list" href="#notes" role="tab") Notes
+                    a.list-group-item.list-group-item-action(data-toggle="list" href="#tweets" role="tab") Tweets
+                    a.list-group-item.list-group-item-action(data-toggle="list" href="#tasks" role="tab") Tasks
+
+            .col.col-12.col-lg-9.col-sm-12.col-md-9
+                <!-- Tab panes -->
+                .tab-content
+                    .tab-pane.active#notes(role="tabpanel")
+                        .row
+                            form(action="/add-note" method="post").note-input.col.col-lg-8.col-md-10.col-sm-12.col-12.ml-auto.mr-auto
+                                .inputs-holder
+                                    .form-group
+                                        input.form-control.app-input#title(name="title" placeholder="The post title")
+
+                                    .form-group.d-none
+                                        textarea.form-control.app-input#note-text(rows="4" placeholder="Create a note for future use" name="text")
+
+                                button.btn.primary.text-white.submit-button#stepper(type="submit" data-step="1") Next
+                                button.btn.primary.text-white.prev-button.d-none.mx-2.my-2#prev(type="button") Prev
+
+                        .row#notes-box
+                            .col.col-12.text-center
+                                .header.text-center
+                                    h5 Notes
+
+
+                    .tab-pane#tasks(role="tabpanel")
+
+                    .tab-pane#tweets(role="tabpanel")
+                        .row
+                            form.note-input.col.col-lg-8.col-md-10.col-sm-12.col-12.ml-auto.mr-auto#tweet-form
+                                .form-group
+                                    textarea.form-control.app-input#tweet-text(rows="1" placeholder="Schedule a tweet for later posting" name="tweet")
+                                    small.form-text.text-right#counter.
+                                        #[span.text-count 0]/140
+                                button.btn.submit-button.primary.text-white(type="submit") Save
+
+                        .row.bottom-form-row
+                            .col.col-12
+                                .list-group.w-90.mr-auto.ml-auto.tweet-box
+
+
+
+
+
+    .modal.fade.delete-modal(tabindex="-1" role="dialog" aria-labelledby="deleteMessage" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.modal-title.primary-text#deleteMessage #[i.fa.fa-trash.fa-lg.primary-text.mx-2.align-middle(style="margin-bottom: 10px")]Delete Content
+                    button(type="button" class="close primary-text" data-dismiss="modal" aria-label="Close")
+                        span.pointer.primary-text(aria-hidden="true") &times;
+                .modal-body.d-flex.justify-content-center.flex-column.align-items-center
+                    div.my-4
+                        i.fa.fa-trash.fa-3x.fa-pull-left.fa-border.primary-text.border-success(aria-hidden="true")
+                    h5.primary-text Are you sure you want to delete this #[span#delete-content]
+
+                .modal-footer
+                    button(type="button" class="btn btn-outline-success modal-button" data-dismiss="modal") Close
+                    button(type="button" class="btn btn-outline-danger modal-button" id="trigger-delete") Delete
+
+
+    .alert.alert-dark.alert-dismissable.show.fade.app-message.d-none
+        span
+
+
+    include partials/scripts
+    script(src="/javascripts/scripts.js")
